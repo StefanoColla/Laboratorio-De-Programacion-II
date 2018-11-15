@@ -87,6 +87,42 @@ public class GestionarEmpresa implements Gestionar{
             return resultado;
         
     }
+    @Override
+    public Doctor buscarDoc(){
+        Doctor resultado = null;
+        Doctor d = new Doctor(1000,"Pediatra","Pedro","3",30,"Av Falsa 123");
+        for(Object c : regis){
+            if(c.getClass().equals(d.getClass())){
+                resultado = (Doctor) c;
+                break;
+            }
+        }
+        return resultado;
+    }
+    @Override
+    public Enfermero buscarEnf(){
+        Enfermero resultado = null;
+        Enfermero d = new Enfermero(100,"Pedro","4",30,"Av Falsa 123");
+        for(Object c : regis){
+            if(c.getClass().equals(d.getClass())){
+                resultado = (Enfermero) c;
+                break;
+            }
+        }
+        return resultado;
+    }
+    @Override
+    public Movil buscarMov(){
+        Movil resultado = null;
+        Movil mov = new Movil("Fiat","600",1998,"kjg 123");
+        for(Object c : moviles){
+            if(c.getClass().equals(mov.getClass())){
+                resultado = (Movil) c;
+                break;
+            }
+        }
+        return resultado;
+    }
         
     
     

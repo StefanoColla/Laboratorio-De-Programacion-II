@@ -113,18 +113,23 @@ public class Solicitud extends javax.swing.JFrame {
 
     private void SolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitudActionPerformed
         try{
-            if(this.dni.getText().trim().equals("")){
+            if(this.dni.getText().equals("")==true){
                 throw new CampoVacioException();
-            }
-            else{
+            }else{
                 per = (Afiliado)this.gestor.buscar(this.dni.getText());
                 Boolean respuesta = per.getPago().compararMes();
                 if(respuesta==false){
                     JOptionPane.showMessageDialog(rootPane,"Solicitud Rechazada","ATENCION",0);
                 }
                 else{
+                    Doctor doc= gestor.buscarDoc();
+                    Enfermero enfer = gestor.buscarEnf();
+                    Movil movil= gestor.buscarMov();
                     soli = new SolicitudMedica(per,doc,enfer,movil);
                     JOptionPane.showMessageDialog(rootPane,"Solicitud Existosa");
+                    InfoPaciente inf=new InfoPaciente(gestor,soli,"Enfermedad a tratar, para datos especificos sobre medicamentos consulta al medico.");
+                    inf.setLocationRelativeTo(null);
+                    inf.setVisible(true);
                 }
             }
         }catch(java.lang.NumberFormatException e){
@@ -132,8 +137,10 @@ public class Solicitud extends javax.swing.JFrame {
         
         }catch(java.lang.ClassCastException e){
             JOptionPane.showMessageDialog(rootPane,"Persona no existente","ATENCION",0);
-        } catch (Exception ex) {
+        } catch (CampoVacioException ex) {
             JOptionPane.showMessageDialog(rootPane,"Ingrese Dni","ATENCION",0);
+        }catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(rootPane,"Personal o Movil no Disponible.","ATENCION",0);
         }    
     }//GEN-LAST:event_SolicitudActionPerformed
 

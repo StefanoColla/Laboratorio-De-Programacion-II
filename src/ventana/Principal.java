@@ -57,8 +57,6 @@ public class Principal extends javax.swing.JFrame {
         pagarAbono = new javax.swing.JCheckBoxMenuItem();
         solicitud = new javax.swing.JMenu();
         solicitudMedica = new javax.swing.JRadioButtonMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        InfoPaciente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         salida = new javax.swing.JMenuItem();
 
@@ -242,20 +240,6 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(solicitud);
 
-        jMenu3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
-        jMenu3.setText("Informacion");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        InfoPaciente.setText("Informacion Paciente");
-        InfoPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InfoPacienteActionPerformed(evt);
-            }
-        });
-        jMenu3.add(InfoPaciente);
-
-        jMenuBar1.add(jMenu3);
-
         jMenu2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jMenu2.setText("Salir");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -285,13 +269,6 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void InfoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPacienteActionPerformed
-        InfoPaciente info = new InfoPaciente(gestor);
-        info.setTitle("INFORMACION PACIENTE");
-        info.setLocationRelativeTo(null);
-        info.setVisible(true);
-    }//GEN-LAST:event_InfoPacienteActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         RegistrarAfi titular = new RegistrarAfi(gestor);
@@ -399,7 +376,6 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButtonMenuItem BuscarMovil;
-    private javax.swing.JMenuItem InfoPaciente;
     private javax.swing.JRadioButtonMenuItem RegistrarMovil;
     private javax.swing.JMenu afiliado;
     private javax.swing.JMenuItem agregar;
@@ -412,7 +388,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;

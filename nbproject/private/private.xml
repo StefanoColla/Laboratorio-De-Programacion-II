@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/ModificarDatosPersonales.java</file>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/MostrarDatosMedico.java</file>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/MostrarDatosPersonales.java</file>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/MostrarMedico.java</file>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/GestorClinica.java</file>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/MostrarPacientes.java</file>
-            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/Punto2TP4/src/punto2tp4/NuevoMedico.java</file>
+            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/AsistenciaMedica/src/asistencia/PagoAfiliado.java</file>
+            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/AsistenciaMedica/src/ventana/InfoPaciente.java</file>
+            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/AsistenciaMedica/src/ventana/Principal.java</file>
+            <file>file:/C:/Users/El%20Tio/Documents/NetBeansProjects/AsistenciaMedica/src/ventana/Solicitud.java</file>
         </group>
     </open-files>
 </project-private>

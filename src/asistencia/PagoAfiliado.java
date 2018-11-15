@@ -38,7 +38,7 @@ public class PagoAfiliado {
         Calendar  fecha =  Calendar.getInstance();
         Cuota c=getUltimaCuota();
         if(c.año==fecha.get(Calendar.YEAR)){
-            if(c.mes<fecha.get(Calendar.MONTH)){
+            if((fecha.get(Calendar.MONTH)-c.mes)<=2){
                 resultado=true;
             }else{
                 resultado=false;
