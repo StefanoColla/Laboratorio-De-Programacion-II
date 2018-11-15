@@ -1,8 +1,8 @@
 
 package ventana;
 
-import asistenciamedica.Gestionar;
-import asistenciamedica.Movil;
+import asistencia.Gestionar;
+import asistencia.Movil;
 import exception.CampoVacioException;
 import javax.swing.JOptionPane;
 
@@ -41,7 +41,7 @@ public class BuscarMovil extends javax.swing.JFrame {
         modelo = new javax.swing.JTextField();
         año = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese Patente:");
@@ -86,8 +86,6 @@ public class BuscarMovil extends javax.swing.JFrame {
                 editarenfermeroActionPerformed(evt);
             }
         });
-
-        año.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,9 +154,7 @@ public class BuscarMovil extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -171,20 +167,17 @@ public class BuscarMovil extends javax.swing.JFrame {
                 throw new CampoVacioException();
             }
             else{
-                movil = (Movil)this.gestor.buscar(this.patente.getText());
+                movil = (Movil)this.gestor.buscarMovil(this.patente.getText());
                 this.modelo.setText(movil.getModelo());
                 this.año.setText(String.valueOf(movil.getAño()));
                 this.marca.setText(movil.getMarca());
-                
-
-            }
-
+          }
+        }catch(java.lang.NumberFormatException e){
+            JOptionPane.showMessageDialog(rootPane,"Error en el formato ","ATENCION",0);
         }catch(java.lang.NullPointerException e){
-            JOptionPane.showMessageDialog(rootPane,"Enfermero no Registrado","ATENCION",0);
-        }catch(java.lang.ClassCastException e){
-            JOptionPane.showMessageDialog(rootPane,"Enfermero no existente","ATENCION",0);
+            JOptionPane.showMessageDialog(rootPane,"Movil no Registrado","ATENCION",0);
         } catch (CampoVacioException ex) {
-            JOptionPane.showMessageDialog(rootPane,"Ingrese dni","ATENCION",0);
+            JOptionPane.showMessageDialog(rootPane,"Ingrese Patente","ATENCION",0);
         }
     }//GEN-LAST:event_buscarChoferActionPerformed
 
@@ -193,23 +186,32 @@ public class BuscarMovil extends javax.swing.JFrame {
     }//GEN-LAST:event_salidaChoferActionPerformed
 
     private void limpiarChoferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarChoferActionPerformed
-        this.dniEnfer.setText(null);
-        this.nombre.setText(null);
-        this.edad.setText(null);
-        this.domicilio.setText(null);
-        this.sueldo.setText(null);
+        this.patente.setText(null);
+        this.marca.setText(null);
+        this.modelo.setText(null);
+        this.año.setText(null);
     }//GEN-LAST:event_limpiarChoferActionPerformed
 
     private void editarenfermeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarenfermeroActionPerformed
         try{
-            EditarEnfer edi = new EditarEnfer(gestor,per);
-            edi.setTitle("EDITAR ENFERMERO");
+           String aux1 = this.marca.getText().trim();
+           String aux2 = this.modelo.getText().trim();
+           if(aux1.equals("") || aux2.equals("")){
+               throw new CampoVacioException();
+           }
+           else{
+            EditarMovil edi = new EditarMovil(gestor,movil);
+            edi.setTitle("EDITAR MOVIL");
             edi.setLocationRelativeTo(null);
             edi.setVisible(true);
             this.setVisible(false);
-        }catch(java.lang.NullPointerException e){
-            JOptionPane.showMessageDialog(rootPane,"Buscar ENFERMERO","ATENCION",0);
+           }
+       }catch(java.lang.NullPointerException e){
+            JOptionPane.showMessageDialog(rootPane,"Buscar Movil","ATENCION",0);
+                } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane,"Campo Vacio","ATENCION",0);
         }
+        
     }//GEN-LAST:event_editarenfermeroActionPerformed
 
     

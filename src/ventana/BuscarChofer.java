@@ -1,8 +1,8 @@
 
 package ventana;
 
-import asistenciamedica.Chofer;
-import asistenciamedica.Gestionar;
+import asistencia.Chofer;
+import asistencia.Gestionar;
 import exception.CampoVacioException;
 import exception.EmpleadoExistente;
 import java.util.logging.Level;

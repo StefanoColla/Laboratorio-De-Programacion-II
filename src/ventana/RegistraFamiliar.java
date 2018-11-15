@@ -1,10 +1,10 @@
 
 package ventana;
 
-import asistenciamedica.Afiliado;
-import asistenciamedica.Familiar;
-import asistenciamedica.Persona;
-import asistenciamedica.ValidarCampo;
+import asistencia.Afiliado;
+import asistencia.Familiar;
+import asistencia.Persona;
+import asistencia.ValidarCampo;
 import exception.CampoVacioException;
 import exception.EmpleadoExistente;
 import java.awt.event.KeyAdapter;

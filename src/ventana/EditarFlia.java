@@ -1,66 +1,46 @@
 
 package ventana;
 
-import asistencia.Afiliado;
-import asistencia.Gestionar;
-import asistencia.ValidarCampo;
+import asistencia.Familiar;
 import exception.CampoVacioException;
 import exception.EmpleadoExistente;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
  * @author usuario
  */
-public class RegistrarAfi extends javax.swing.JFrame {
-    private  Gestionar gestor;
-    private Afiliado afi;
-    private ValidarCampo va = new ValidarCampo();
-   
-    public RegistrarAfi(Gestionar gestor) {
-        super("Agregar Afiliado");
-        this.gestor=gestor;
+public class EditarFlia extends javax.swing.JFrame {
+    private Familiar fa;
+    
+    public EditarFlia(Familiar fa) {
+        this.fa=fa;
         initComponents();
-        va.soloLetra(nombreAfi);
-        va.soloNumero(edadAfi);
-        va.soloNumero(dniAfi);
-        
+        this.nombreF.setText(fa.getNombre());
+        this.edadF.setText(String.valueOf(fa.getEdad()));
+        this.dniF.setText(fa.getDni());
+        this.domicilioF.setText(fa.getDomicilio());
+        dniF.setEditable(false);
         
     }
     
-    
 
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField3 = new javax.swing.JTextField();
-        dia = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         l = new javax.swing.JLabel();
         p = new javax.swing.JLabel();
         e = new javax.swing.JLabel();
         v = new javax.swing.JLabel();
-        nombreAfi = new javax.swing.JTextField();
-        dniAfi = new javax.swing.JTextField();
-        edadAfi = new javax.swing.JTextField();
-        domicilioAfi = new javax.swing.JTextField();
-        registrarAfi = new javax.swing.JButton();
+        nombreF = new javax.swing.JTextField();
+        dniF = new javax.swing.JTextField();
+        edadF = new javax.swing.JTextField();
+        domicilioF = new javax.swing.JTextField();
+        modificar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
-
-        jTextField3.setText("jTextField1");
-
-        dia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diaActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -76,34 +56,34 @@ public class RegistrarAfi extends javax.swing.JFrame {
         v.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         v.setText("Domicilio:");
 
-        nombreAfi.addKeyListener(new java.awt.event.KeyAdapter() {
+        nombreF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                nombreAfiKeyTyped(evt);
+                nombreFKeyTyped(evt);
             }
         });
 
-        dniAfi.addActionListener(new java.awt.event.ActionListener() {
+        dniF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dniAfiActionPerformed(evt);
+                dniFActionPerformed(evt);
             }
         });
-        dniAfi.addKeyListener(new java.awt.event.KeyAdapter() {
+        dniF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                dniAfiKeyTyped(evt);
+                dniFKeyTyped(evt);
             }
         });
 
-        edadAfi.addKeyListener(new java.awt.event.KeyAdapter() {
+        edadF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                edadAfiKeyTyped(evt);
+                edadFKeyTyped(evt);
             }
         });
 
-        registrarAfi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        registrarAfi.setText("Registrar");
-        registrarAfi.addActionListener(new java.awt.event.ActionListener() {
+        modificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        modificar.setText("Modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarAfiActionPerformed(evt);
+                modificarActionPerformed(evt);
             }
         });
 
@@ -123,8 +103,8 @@ public class RegistrarAfi extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(registrarAfi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                        .addComponent(modificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                         .addComponent(cancelar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -135,11 +115,11 @@ public class RegistrarAfi extends javax.swing.JFrame {
                             .addComponent(l))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombreAfi, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(dniAfi)
-                            .addComponent(domicilioAfi)
-                            .addComponent(edadAfi, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(78, 78, 78))
+                            .addComponent(nombreF, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(dniF)
+                            .addComponent(domicilioF)
+                            .addComponent(edadF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(31, 31, 31))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,21 +129,21 @@ public class RegistrarAfi extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(l)
-                            .addComponent(nombreAfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nombreF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(p)
-                            .addComponent(dniAfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dniF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(e)
-                            .addComponent(edadAfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(edadF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(v))
-                    .addComponent(domicilioAfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                    .addComponent(domicilioF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registrarAfi)
+                    .addComponent(modificar)
                     .addComponent(cancelar))
                 .addGap(35, 35, 35))
         );
@@ -181,87 +161,69 @@ public class RegistrarAfi extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
-        
-       
-    }//GEN-LAST:event_diaActionPerformed
 
-    private void nombreAfiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreAfiKeyTyped
+    private void nombreFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreFKeyTyped
 
-    }//GEN-LAST:event_nombreAfiKeyTyped
+    }//GEN-LAST:event_nombreFKeyTyped
 
-    private void dniAfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniAfiActionPerformed
+    private void dniFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniFActionPerformed
 
-    }//GEN-LAST:event_dniAfiActionPerformed
+    }//GEN-LAST:event_dniFActionPerformed
 
-    private void dniAfiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniAfiKeyTyped
-        if(this.dniAfi.getText().length()>=8){
+    private void dniFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dniFKeyTyped
+        if(this.dniF.getText().length()>=8){
             evt.consume();
         }
-    }//GEN-LAST:event_dniAfiKeyTyped
+    }//GEN-LAST:event_dniFKeyTyped
 
-    private void edadAfiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadAfiKeyTyped
-        if(this.edadAfi.getText().length()>=2){
+    private void edadFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadFKeyTyped
+        if(this.edadF.getText().length()>=2){
             evt.consume();
         }
-    }//GEN-LAST:event_edadAfiKeyTyped
+    }//GEN-LAST:event_edadFKeyTyped
 
-    private void registrarAfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarAfiActionPerformed
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
 
         try{
-            String aux1 = this.nombreAfi.getText().trim();
-            String aux2 = this.domicilioAfi.getText().trim();
+            String aux1 = this.nombreF.getText().trim();
+            String aux2 = this.domicilioF.getText().trim();
             if(aux1.equals("") || aux2.equals("")){
                 throw new CampoVacioException();
             }
             else{
-                afi =new Afiliado(this.nombreAfi.getText(),this.dniAfi.getText(),Integer.parseInt(this.edadAfi.getText()),this.domicilioAfi.getText());
-                this.gestor.añadir(afi);
-                JOptionPane.showMessageDialog(rootPane, "Afiliado Registrado");
-            
-                RegistraFamiliar fami = new RegistraFamiliar(afi);
-                fami.setTitle("REGISTRAR FAMILIAR");
-                fami.setLocationRelativeTo(null);
-                fami.setVisible(true);
-            } 
-
+                fa.setDomicilio(domicilioF.getText());
+                fa.setEdad(Integer.parseInt(edadF.getText()));
+                fa.setNombre(nombreF.getText());
+                JOptionPane.showMessageDialog(rootPane, "Familiar Modificado");
+            }
         }catch(java.lang.NumberFormatException e){
             JOptionPane.showMessageDialog(rootPane,"Error en el formato de dato","ATENCION",0);
         }catch(EmpleadoExistente e){
-            JOptionPane.showMessageDialog(rootPane,"Empleado ya Registrado","ATENCION",0);
+            JOptionPane.showMessageDialog(rootPane,"Familiar ya Registrado","ATENCION",0);
         } catch (CampoVacioException ex) {
             JOptionPane.showMessageDialog(rootPane,"Campo Vacio","ATENCION",0);
         }
-         this.nombreAfi.setText(null);
-            this.dniAfi.setText(null);
-            this.edadAfi.setText(null);
-            this.domicilioAfi.setText(null);
-
-    }//GEN-LAST:event_registrarAfiActionPerformed
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_modificarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_cancelarActionPerformed
 
- 
-   
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
-    private javax.swing.JTextField dia;
-    private javax.swing.JTextField dniAfi;
-    private javax.swing.JTextField domicilioAfi;
+    private javax.swing.JTextField dniF;
+    private javax.swing.JTextField domicilioF;
     private javax.swing.JLabel e;
-    private javax.swing.JTextField edadAfi;
+    private javax.swing.JTextField edadF;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel l;
-    private javax.swing.JTextField nombreAfi;
+    private javax.swing.JButton modificar;
+    private javax.swing.JTextField nombreF;
     private javax.swing.JLabel p;
-    private javax.swing.JButton registrarAfi;
     private javax.swing.JLabel v;
     // End of variables declaration//GEN-END:variables
-
-    
 }

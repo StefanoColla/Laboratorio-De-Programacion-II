@@ -42,29 +42,28 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                          <Component id="registrar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="130" max="32767" attributes="0"/>
+                          <Component id="modificar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="118" max="32767" attributes="0"/>
                           <Component id="cancelar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="p" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="e" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="v" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="e" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="p" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="l" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="marca" max="32767" attributes="0"/>
-                              <Component id="modelo" max="32767" attributes="0"/>
-                              <Component id="año" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                              <Component id="patente" pref="180" max="32767" attributes="0"/>
+                              <Component id="nombreF" alignment="0" pref="200" max="32767" attributes="0"/>
+                              <Component id="dniF" alignment="0" max="32767" attributes="0"/>
+                              <Component id="domicilioF" alignment="0" max="32767" attributes="0"/>
+                              <Component id="edadF" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -72,28 +71,30 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="l" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="marca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="l" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nombreF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="p" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dniF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="e" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="edadF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="v" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="domicilioF" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace pref="90" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="p" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="modelo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="e" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="año" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="v" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="patente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="registrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="modificar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -107,7 +108,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Marca:"/>
+            <Property name="text" type="java.lang.String" value="Nombre Y Apellido:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="p">
@@ -115,7 +116,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Modelo:"/>
+            <Property name="text" type="java.lang.String" value="N&#xb0; Documento:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="e">
@@ -123,7 +124,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
+            <Property name="text" type="java.lang.String" value="Edad:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="v">
@@ -131,18 +132,36 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Patente:"/>
+            <Property name="text" type="java.lang.String" value="Domicilio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="registrar">
+        <Component class="javax.swing.JTextField" name="nombreF">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nombreFKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="dniF">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dniFActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dniFKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edadF">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edadFKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="domicilioF">
+        </Component>
+        <Component class="javax.swing.JButton" name="modificar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registrar"/>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modificarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cancelar">
@@ -155,14 +174,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="marca">
-        </Component>
-        <Component class="javax.swing.JTextField" name="modelo">
-        </Component>
-        <Component class="javax.swing.JTextField" name="a&#xf1;o">
-        </Component>
-        <Component class="javax.swing.JTextField" name="patente">
         </Component>
       </SubComponents>
     </Container>

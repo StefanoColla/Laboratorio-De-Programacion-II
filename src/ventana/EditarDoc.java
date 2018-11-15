@@ -1,9 +1,9 @@
 
 package ventana;
 
-import asistenciamedica.Doctor;
-import asistenciamedica.Gestionar;
-import asistenciamedica.ValidarCampo;
+import asistencia.Doctor;
+import asistencia.Gestionar;
+import asistencia.ValidarCampo;
 import exception.CampoVacioException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

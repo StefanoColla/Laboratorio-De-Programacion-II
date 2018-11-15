@@ -1,9 +1,9 @@
 
 package ventana;
 
-import asistenciamedica.Administrativo;
-import asistenciamedica.Gestionar;
-import asistenciamedica.ValidarCampo;
+import asistencia.Administrativo;
+import asistencia.Gestionar;
+import asistencia.ValidarCampo;
 import exception.CampoVacioException;
 import exception.EmpleadoExistente;
 import java.awt.event.KeyAdapter;

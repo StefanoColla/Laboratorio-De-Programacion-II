@@ -1,11 +1,11 @@
 
 package ventana;
 
-import asistenciamedica.Afiliado;
-import asistenciamedica.Familiar;
-import asistenciamedica.Gestionar;
-import asistenciamedica.Persona;
-import asistenciamedica.ValidarCampo;
+import asistencia.Afiliado;
+import asistencia.Familiar;
+import asistencia.Gestionar;
+import asistencia.Persona;
+import asistencia.ValidarCampo;
 import exception.CampoVacioException;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -21,10 +21,8 @@ public class EditarAfi extends javax.swing.JFrame {
     private Familiar fami;
     
     private ValidarCampo campo = new ValidarCampo();
-    DefaultListModel listaN = new DefaultListModel();
-    DefaultListModel listaD = new DefaultListModel();
-    DefaultListModel listaE = new DefaultListModel();
-    DefaultListModel listaDomi = new DefaultListModel();
+    DefaultListModel listaFamiliar = new DefaultListModel();
+    
     
     public EditarAfi(Gestionar gestor,Afiliado afi) {
         this.gestor=gestor;
@@ -35,15 +33,9 @@ public class EditarAfi extends javax.swing.JFrame {
         this.nombre.setText(per.getNombre());
         this.edad.setText(String.valueOf(per.getEdad()));
         this.domicilio.setText(per.getDomicilio());
-        this.listaDomicilio.setModel(listaDomi);
-        this.listaNombre.setModel(listaN);
-        this.listaDni.setModel(listaD);
-        this.listaEdad.setModel(listaE);
+        this.listaFlia.setModel(listaFamiliar);
         for(Persona f: per.getFamiliar()){
-            listaN.addElement(f.getNombre());
-            listaD.addElement(f.getDni());
-            listaE.addElement(f.getEdad());
-            listaDomi.addElement(f.getDomicilio());
+            listaFamiliar.addElement(f);
         }
     }
 
@@ -64,21 +56,10 @@ public class EditarAfi extends javax.swing.JFrame {
         modificarAdmi = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaNombre = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listaDni = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        listaEdad = new javax.swing.JList<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        listaDomicilio = new javax.swing.JList<>();
-        agregarInfo = new javax.swing.JTextField();
-        agregar = new javax.swing.JButton();
-        quitar = new javax.swing.JButton();
+        listaFlia = new javax.swing.JList<>();
+        modificarF = new javax.swing.JButton();
+        eliminarF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -138,37 +119,21 @@ public class EditarAfi extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Informacion Familiares:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre");
+        jScrollPane1.setViewportView(listaFlia);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setText("N° Documento");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setText("Edad");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setText("Domicilio");
-
-        jScrollPane1.setViewportView(listaNombre);
-
-        jScrollPane2.setViewportView(listaDni);
-
-        jScrollPane3.setViewportView(listaEdad);
-
-        jScrollPane4.setViewportView(listaDomicilio);
-
-        agregar.setText("agregar");
-        agregar.addActionListener(new java.awt.event.ActionListener() {
+        modificarF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        modificarF.setText("Modificar familiar");
+        modificarF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarActionPerformed(evt);
+                modificarFActionPerformed(evt);
             }
         });
 
-        quitar.setText("Quitar");
-        quitar.addActionListener(new java.awt.event.ActionListener() {
+        eliminarF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eliminarF.setText("Eliminar Familiar");
+        eliminarF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitarActionPerformed(evt);
+                eliminarFActionPerformed(evt);
             }
         });
 
@@ -177,67 +142,43 @@ public class EditarAfi extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(160, 160, 160))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(81, 81, 81)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(agregar)
-                                .addGap(10, 10, 10)
-                                .addComponent(agregarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(71, 71, 71)
-                                .addComponent(quitar))))
+                                .addComponent(jLabel4)
+                                .addGap(138, 138, 138)
+                                .addComponent(domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(49, 49, 49)
+                        .addComponent(salir))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addComponent(modificarAdmi)
+                        .addGap(50, 50, 50)
+                        .addComponent(eliminar)
+                        .addGap(35, 35, 35)
+                        .addComponent(limpiar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(160, 160, 160))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(81, 81, 81)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(138, 138, 138)
-                                        .addComponent(domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(49, 49, 49)
-                                .addComponent(salir))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(modificarAdmi)
-                                .addGap(50, 50, 50)
-                                .addComponent(eliminar)
-                                .addGap(35, 35, 35)
-                                .addComponent(limpiar))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(152, 152, 152)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(159, 159, 159)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                                .addComponent(modificarF)
+                                .addGap(56, 56, 56)
+                                .addComponent(eliminarF))
+                            .addComponent(jLabel1))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,24 +203,13 @@ public class EditarAfi extends javax.swing.JFrame {
                     .addComponent(limpiar))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agregar)
-                    .addComponent(agregarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quitar))
-                .addGap(21, 21, 21))
+                    .addComponent(modificarF)
+                    .addComponent(eliminarF))
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,7 +222,9 @@ public class EditarAfi extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -353,7 +285,7 @@ public class EditarAfi extends javax.swing.JFrame {
             }
             else{
                 this.gestor.eliminar(per.getDni());
-                JOptionPane.showMessageDialog(rootPane, "Administrativo Eliminado");
+                JOptionPane.showMessageDialog(rootPane, "Afiliado Eliminado");
                 this.domicilio.setText(null);
                 this.edad.setText(null);
                 this.nombre.setText(null);
@@ -363,55 +295,53 @@ public class EditarAfi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eliminarActionPerformed
 
-    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        String aux=this.agregarInfo.getText().trim();
-       
-            listaN.addElement(aux);
-            
-        
-        for(Persona f : per.getFamiliar()){
-            f.setNombre(aux);
+    private void modificarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarFActionPerformed
+        int p = listaFlia.getSelectedIndex();
+        if(p>=0){
+            fami=(Familiar)per.getFamiliar().get(p);
+            EditarFlia f = new EditarFlia(fami);
+            f.setTitle("MODICAR FAMILIAR");
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane,"seleccione un familiar","ATENCION",0);
+        }
+    }//GEN-LAST:event_modificarFActionPerformed
+
+    private void eliminarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFActionPerformed
+        int p=listaFlia.getSelectedIndex();
+        if(p>=0){
+            fami=(Familiar)per.getFamiliar().get(p);
+            listaFamiliar.remove(p);
+            per.getFamiliar().remove(fami);
+            JOptionPane.showMessageDialog(rootPane,"Familiar Eliminado");
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane,"Seleccione un Familiar","ATENCION",0);
         }
         
-    }//GEN-LAST:event_agregarActionPerformed
-
-    private void quitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarActionPerformed
-        int pos=listaNombre.getSelectedIndex();
-       
-            listaNombre.remove(pos);
-            
         
-    }//GEN-LAST:event_quitarActionPerformed
+    }//GEN-LAST:event_eliminarFActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregar;
-    private javax.swing.JTextField agregarInfo;
     private javax.swing.JTextField domicilio;
     private javax.swing.JTextField edad;
     private javax.swing.JButton eliminar;
+    private javax.swing.JButton eliminarF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton limpiar;
-    private javax.swing.JList<String> listaDni;
-    private javax.swing.JList<String> listaDomicilio;
-    private javax.swing.JList<String> listaEdad;
-    private javax.swing.JList<String> listaNombre;
+    private javax.swing.JList<String> listaFlia;
     private javax.swing.JButton modificarAdmi;
+    private javax.swing.JButton modificarF;
     private javax.swing.JTextField nombre;
-    private javax.swing.JButton quitar;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,8 @@
 
 package ventana;
 
-import asistenciamedica.Enfermero;
-import asistenciamedica.Gestionar;
+import asistencia.Enfermero;
+import asistencia.Gestionar;
 import exception.CampoVacioException;
 import javax.swing.JOptionPane;
 

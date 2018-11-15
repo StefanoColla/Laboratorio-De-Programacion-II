@@ -1,8 +1,8 @@
 
 package ventana;
 
-import asistenciamedica.Administrativo;
-import asistenciamedica.Gestionar;
+import asistencia.Administrativo;
+import asistencia.Gestionar;
 import exception.EmpleadoExistente;
 import javax.swing.JOptionPane;
 
