@@ -6,27 +6,37 @@ package asistencia;
  * @author usuario
  */
 public class SolicitudMedica {
-    private Afiliado paciente;
+    private Persona paciente;
     private Doctor doc;
     private Enfermero enfer;
     private Movil movil;
     private String diagnostico;
 
-    public SolicitudMedica(Afiliado paciente,Doctor doc,Enfermero enfer,Movil movil) {
+    public SolicitudMedica(Persona paciente,Doctor doc,Enfermero enfer,Movil movil) {
         this.paciente=paciente;
         this.doc=doc;
         this.enfer=enfer;
         this.movil=movil;
    
     }
-   
-    public Afiliado getPaciente() {
+
+    public Persona getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(Afiliado paciente) {
+    public void setPaciente(Persona paciente) {
         this.paciente = paciente;
     }
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+   
+    
 
     public Doctor getDoc() {
         return doc;

@@ -16,5 +16,9 @@ public interface Gestionar {
     public abstract void añadirMovil(Object mov);
     public abstract void eliminarMovil(String mov);
     public abstract Object buscarMovil(String patente);
+    public abstract Doctor buscarDoc();
+    public abstract Enfermero buscarEnf();
+    public abstract Movil buscarMov();
+    
     
 }

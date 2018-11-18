@@ -28,6 +28,8 @@ public class Solicitud extends javax.swing.JFrame {
     public Solicitud(Gestionar gestor) {
         this.gestor=gestor;
         initComponents();
+        diagnostico.setEditable(false);
+        jButton1.setEnabled(false);
     }
 
     
@@ -39,8 +41,12 @@ public class Solicitud extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         dni = new javax.swing.JTextField();
-        Solicitud = new javax.swing.JButton();
+        SolicitudTitular = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        diagnostico = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Ingrese N° Documento:");
@@ -50,11 +56,11 @@ public class Solicitud extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Ingrese N° Documento:");
 
-        Solicitud.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Solicitud.setText("Solicitar");
-        Solicitud.addActionListener(new java.awt.event.ActionListener() {
+        SolicitudTitular.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SolicitudTitular.setText("Solicitar");
+        SolicitudTitular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SolicitudActionPerformed(evt);
+                SolicitudTitularActionPerformed(evt);
             }
         });
 
@@ -66,22 +72,44 @@ public class Solicitud extends javax.swing.JFrame {
             }
         });
 
+        diagnostico.setColumns(20);
+        diagnostico.setRows(5);
+        jScrollPane1.setViewportView(diagnostico);
+
+        jLabel3.setText("Escribir Diagnostico:");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addGap(31, 31, 31)
-                .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(Solicitud)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelar)
-                .addGap(112, 112, 112))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)
+                        .addGap(31, 31, 31)
+                        .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(SolicitudTitular)
+                                .addGap(39, 39, 39)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)
+                                .addComponent(cancelar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(37, 37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,40 +118,50 @@ public class Solicitud extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Solicitud)
-                    .addComponent(cancelar))
-                .addGap(27, 27, 27))
+                    .addComponent(SolicitudTitular)
+                    .addComponent(cancelar)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitudActionPerformed
+    private void SolicitudTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitudTitularActionPerformed
         try{
-            if(this.dni.getText().trim().equals("")){
+            if(this.dni.getText().equals("")==true){
                 throw new CampoVacioException();
-            }
-            else{
+            }else{
                 per = (Afiliado)this.gestor.buscar(this.dni.getText());
                 Boolean respuesta = per.getPago().compararMes();
                 if(respuesta==false){
                     JOptionPane.showMessageDialog(rootPane,"Solicitud Rechazada","ATENCION",0);
                 }
                 else{
+                    Doctor doc= gestor.buscarDoc();
+                    Enfermero enfer = gestor.buscarEnf();
+                    Movil movil= gestor.buscarMov();
                     soli = new SolicitudMedica(per,doc,enfer,movil);
+                    
+                    diagnostico.setEditable(true);
+                    jButton1.setEnabled(true);
                     JOptionPane.showMessageDialog(rootPane,"Solicitud Existosa");
                 }
             }
@@ -132,23 +170,38 @@ public class Solicitud extends javax.swing.JFrame {
         
         }catch(java.lang.ClassCastException e){
             JOptionPane.showMessageDialog(rootPane,"Persona no existente","ATENCION",0);
-        } catch (Exception ex) {
+        } catch (CampoVacioException ex) {
             JOptionPane.showMessageDialog(rootPane,"Ingrese Dni","ATENCION",0);
+        }catch (NullPointerException ex){
+            JOptionPane.showMessageDialog(rootPane,"Personal o Movil no Disponible.","ATENCION",0);
         }    
-    }//GEN-LAST:event_SolicitudActionPerformed
+    }//GEN-LAST:event_SolicitudTitularActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_cancelarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String mensaje = diagnostico.getText();
+        InfoPaciente inf=new InfoPaciente(gestor,soli,mensaje);
+        inf.setTitle("INFORMACION DEL PACIENTE");
+        inf.setLocationRelativeTo(null);
+        inf.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Solicitud;
+    private javax.swing.JButton SolicitudTitular;
     private javax.swing.JButton cancelar;
+    private javax.swing.JTextArea diagnostico;
     private javax.swing.JTextField dni;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,12 @@
 
 package asistencia;
 
+import exception.CampoVacioException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -12,10 +16,11 @@ import java.util.Calendar;
 public class PagoAfiliado {
     private final int IMPORTE_POR_MES=200;
     private ArrayList pagos = new ArrayList();
+    private Afiliado afi;
     
     
-    public PagoAfiliado(){
-        
+    public PagoAfiliado(Afiliado afi){
+        this.afi=afi;
     }
     public class Cuota{
         private int mes;
@@ -28,9 +33,25 @@ public class PagoAfiliado {
         
     }
     public void agregarPago(int importe,int mes,int año){
-        if(importe==IMPORTE_POR_MES){
+        int cantFam = cantFamiliares();
+        try{
+        if(importe==IMPORTE_POR_MES+50*cantFam){
             Cuota c = new Cuota(mes,año);
             pagos.add(c);
+            JOptionPane.showMessageDialog(null,"Pago Existoso");
+        }else{
+            if(importe<IMPORTE_POR_MES+50*cantFam){
+                throw new NullPointerException();
+            }else{
+                
+                    throw new CampoVacioException();
+                
+                }
+            }
+        }catch(CampoVacioException ex){
+            JOptionPane.showMessageDialog(null,"Importe Mayor al Solicitado","ATENCION",0);
+        }catch(NullPointerException ex){
+            JOptionPane.showMessageDialog(null,"Importe Menor al Solicitado","ATENCION",0);
         }
     }
     public boolean compararMes(){
@@ -38,7 +59,7 @@ public class PagoAfiliado {
         Calendar  fecha =  Calendar.getInstance();
         Cuota c=getUltimaCuota();
         if(c.año==fecha.get(Calendar.YEAR)){
-            if(c.mes<fecha.get(Calendar.MONTH)){
+            if((fecha.get(Calendar.MONTH)-c.mes)<=2){
                 resultado=true;
             }else{
                 resultado=false;
@@ -60,6 +81,13 @@ public class PagoAfiliado {
             i++;
         }
         return c;
+    }
+    public int cantFamiliares(){
+        int i=0;
+        for(Object c:afi.getListaFam()){
+            i++;
+        }
+        return i;
     }
     
     

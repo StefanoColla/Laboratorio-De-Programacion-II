@@ -17,11 +17,7 @@ public class Principal extends javax.swing.JFrame {
        
     }
    
-    
-    
-    
-    
-
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,8 +53,7 @@ public class Principal extends javax.swing.JFrame {
         pagarAbono = new javax.swing.JCheckBoxMenuItem();
         solicitud = new javax.swing.JMenu();
         solicitudMedica = new javax.swing.JRadioButtonMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        InfoPaciente = new javax.swing.JMenuItem();
+        solicitudFamiliar = new javax.swing.JRadioButtonMenuItem();
         jMenu2 = new javax.swing.JMenu();
         salida = new javax.swing.JMenuItem();
 
@@ -232,7 +227,7 @@ public class Principal extends javax.swing.JFrame {
         solicitud.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         solicitudMedica.setSelected(true);
-        solicitudMedica.setText("Solicitar");
+        solicitudMedica.setText("Solicitud Titular");
         solicitudMedica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 solicitudMedicaActionPerformed(evt);
@@ -240,21 +235,16 @@ public class Principal extends javax.swing.JFrame {
         });
         solicitud.add(solicitudMedica);
 
-        jMenuBar1.add(solicitud);
-
-        jMenu3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
-        jMenu3.setText("Informacion");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        InfoPaciente.setText("Informacion Paciente");
-        InfoPaciente.addActionListener(new java.awt.event.ActionListener() {
+        solicitudFamiliar.setSelected(true);
+        solicitudFamiliar.setText("Solicitud No Titular");
+        solicitudFamiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InfoPacienteActionPerformed(evt);
+                solicitudFamiliarActionPerformed(evt);
             }
         });
-        jMenu3.add(InfoPaciente);
+        solicitud.add(solicitudFamiliar);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(solicitud);
 
         jMenu2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jMenu2.setText("Salir");
@@ -285,13 +275,6 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void InfoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPacienteActionPerformed
-        InfoPaciente info = new InfoPaciente(gestor);
-        info.setTitle("INFORMACION PACIENTE");
-        info.setLocationRelativeTo(null);
-        info.setVisible(true);
-    }//GEN-LAST:event_InfoPacienteActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         RegistrarAfi titular = new RegistrarAfi(gestor);
@@ -396,10 +379,16 @@ public class Principal extends javax.swing.JFrame {
         movil.setVisible(true);
     }//GEN-LAST:event_RegistrarMovilActionPerformed
 
+    private void solicitudFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitudFamiliarActionPerformed
+        SolicitudFamiliar fa = new SolicitudFamiliar(gestor);
+        fa.setTitle("SOLICITAR ASISTENCIA");
+        fa.setLocationRelativeTo(null);
+        fa.setVisible(true);
+    }//GEN-LAST:event_solicitudFamiliarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButtonMenuItem BuscarMovil;
-    private javax.swing.JMenuItem InfoPaciente;
     private javax.swing.JRadioButtonMenuItem RegistrarMovil;
     private javax.swing.JMenu afiliado;
     private javax.swing.JMenuItem agregar;
@@ -412,7 +401,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -432,6 +420,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem registrarEnfermero;
     private javax.swing.JMenuItem salida;
     private javax.swing.JMenu solicitud;
+    private javax.swing.JRadioButtonMenuItem solicitudFamiliar;
     private javax.swing.JRadioButtonMenuItem solicitudMedica;
     // End of variables declaration//GEN-END:variables
 

@@ -18,7 +18,7 @@ public class Afiliado extends Persona {
     public Afiliado(String nombre,String dni,int edad,String domicilio) {
         super();
         familiar= new ArrayList();
-        pago=new PagoAfiliado();
+        pago=new PagoAfiliado(this);
         this.setNombre(nombre);
         this.setDni(dni);
         this.setEdad(edad);
@@ -40,6 +40,21 @@ public class Afiliado extends Persona {
     public void setPago(PagoAfiliado pago) {
         this.pago = pago;
     }
+     public Object buscar(String dni) {
+        Persona resultado = null;
+         for (Object cuenta : familiar) {
+            Persona c = (Persona)cuenta;
+            if (c.getDni().equals(dni)==true){
+                resultado=c;
+            }
+        }
+        return resultado;
+
+    }
+     public ArrayList getListaFam(){
+         return familiar;
+     }
+     
 
     
 
